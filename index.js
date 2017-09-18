@@ -40,7 +40,7 @@ db.once('open', function() { //console log success if connected to mongoose
   console.log('mongoose connection successful');
 });
 
-var routes = require('./controllers'); //routes
+var routes = require('./controllers/app.js'); //routes
 app.use('/', routes);
 
 app.listen(port, function(){ //makes sure app is working
