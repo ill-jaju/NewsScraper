@@ -7,8 +7,8 @@ var commentsSchema = new Schema({
     required: true
   },
   body: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   }
 
 });
