@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'); 
+var Schema = mongoose.Schema; //creates schema class
 
 var articlesSchema = new Schema({
   title: {
@@ -22,4 +22,8 @@ var articlesSchema = new Schema({
     trim: true
   },
 
-})
+});
+
+var Article = mongoose.model("Article", articlesSchema); //create article model w/ articlesSchema
+
+module.exports = Article; //exports model
