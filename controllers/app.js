@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'); //dependencies
 var express = require('express'); //route handlers 
 var router = express.Router();
 var request = require('request'); //scraping tools
 var cheerio = require('cheerio');
+var Article = require('../models/article.js');
 
 mongoose.Promise = Promise; //set mongoose to leverage built in js es6 promises
 
@@ -23,12 +24,14 @@ request("https://arstechnica.com/", function(error, response, html) {
     var link = $(element).find("h2").find("a").attr("href");
     var author = $(element).find(".byline").find("a").text();
     var summary = $(element).find(".excerpt").text().slice(0, 200);
+    // var picture = $(element).find(".listing-small").css("background-image:url").text()
 
     results.push({ // save these results in an object that we'll push into the results array we defined earlier
       title: title,
       link: link,
       author: author,
-      summary: summary
+      summary: summary,
+      // picture: picture
     });
   });
 
