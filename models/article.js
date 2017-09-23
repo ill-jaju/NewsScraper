@@ -4,7 +4,8 @@ var Schema = mongoose.Schema; //creates schema class
 var articlesSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true //makes sure no news duplicates occur
   },
   link: {
     type: String,
