@@ -43,20 +43,21 @@ router.get('/scrape', function(req, res){
           console.log(data);
         }
       });
-      res.send("Scrape Complete");
+
     });
 
     // Log the results once you've looped through each of the elements found with cheerio
     // console.log(results);
   });
-})
+  res.redirect('/articles'); //after scraping, displayes articles page
+});
 
-router.get('/articles', function(req, res) {
-  Article.find({}, function(err, data) {
+router.get('/articles', function(req, res) { //get articles from db
+  Article.find({}, function(err, data) { //grabs articles in array
     if (err) {
       console.log ('article ' + err);
     } else {
-      res.json(data);
+      res.render('index', { scrapedData: data }) //handlebars grabs index template, places data info into respective locations
     }
   });
 });
