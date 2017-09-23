@@ -3,6 +3,7 @@ var exphbs = require("express-handlebars");
 var express = require('express');
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var methodOverride = require("method-override");
 
 mongoose.Promise = Promise; //set mongoose to leverage built in js es6 promises
 
@@ -15,6 +16,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static('public')); //make public a static directory
+
+app.use(methodOverride("_method"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" })); //set handlebars
 app.set("view engine", "handlebars");
