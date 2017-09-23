@@ -11,9 +11,13 @@
     </div>
     <div class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#saved">Saved</a></li>
-        <li><a href="#scraped">Scraped</a></li>
+        <li>
+          <form action='/scrape' method="GET">
+            <button class='btn btn-default navbar-btn'>Get new articles</button>
+          </form>
+        </li>
       </ul>
     </div><!-- /.nav collapse -->
   </div>
@@ -21,11 +25,15 @@
 
 <div class="container">
   <div class="panel panel-default">
+    {{#each scrapedData}}
     <div class="news-boxes panel-heading">
-      <h3 class="panel-title">boop</h3>
+      <h3 class="panel-title">{{this.title}}</h3>
+      <button id="saveButton" class="btn btn-default">New</button>
     </div>
     <div class="panel-body">
-      stuff goes here
+     <p>{{this.author}}</p>
+     <p>{{this.summary}}</p>
     </div>
+    {{/each}}
   </div>
 </div>
