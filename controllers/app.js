@@ -25,6 +25,7 @@ router.get('/scrape', function(req, res){
       result.link = $(element).find("h2").find("a").attr("href");
       result.author = $(element).find(".byline").find("a").text();
       result.summary = $(element).find(".excerpt").text().slice(0, 200);
+      result.date = $(element).find(".date").text();
       // var picture = $(element).find(".listing-small").css("background-image:url").text()
 
       // results.push({ // save these results in an object that we'll push into the results array we defined earlier

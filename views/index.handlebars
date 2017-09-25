@@ -24,16 +24,18 @@
 </nav>
 
 <div class="container">
-  <div class="panel panel-default">
-    {{#each scrapedData}}
-    <div class="news-boxes panel-heading">
-      <h3 class="panel-title">{{this.title}}</h3>
-      <button id="saveButton" class="btn btn-default">New</button>
-    </div>
-    <div class="panel-body">
-     <p>{{this.author}}</p>
-     <p>{{this.summary}}</p>
-    </div>
+  {{#each scrapedData}}
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">{{this.title}}</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-user"></i> {{this.author}}  <i class="glyphicon glyphicon-time"></i> {{this.date}}</small></p>
+              <p>{{this.summary}}  <a href="{{this.link}}">Read more..</a></p>
+            </div>
+          </div>
+        </li>
+    </ul>
     {{/each}}
-  </div>
 </div>
