@@ -11,7 +11,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="#home">Home</a></li>
+        <li><a href="/articles">Home</a></li>
         <li><a href="/saved">Saved</a></li>
         <li>
           <form action='/scrape' method="GET">
@@ -27,9 +27,9 @@
   {{#each savedData}}
     <ul class="timeline">
         <li>
-          <div class="timeline-badge info">
-            <form action='/articles/{{this.id}}?_method=PUT' method="POST">
-              <button type='submit' style="color: #5bc0de" class="glyphicon glyphicon-floppy-disk"></button>
+          <div class="timeline-badge delete">
+            <form action='/saved/article/{{this.id}}?_method=DELETE' method="POST">
+              <button type='submit' style="color: #d9534f" class="glyphicon glyphicon-remove"></button>
             </form>  
           </div>
           <div class="timeline-panel">
