@@ -92,6 +92,9 @@ body {
 .timeline-badge.info {
   background-color: #5bc0de !important;
 }
+.timeline-badge.delete {
+  background-color: #d9534f !important;
+}
 .timeline-title {
   margin-top: 0;
   color: inherit;
