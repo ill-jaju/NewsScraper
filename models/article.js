@@ -26,9 +26,15 @@ var articlesSchema = new Schema({
     type: String,
     required: true,
     trim: true
-  }
+  },
+  isSaved: Boolean
 
 });
+
+articlesSchema.methods.saved = function() {
+  this.isSaved = false;
+  return this.isSaved;
+};
 
 var Article = mongoose.model("Article", articlesSchema); //create article model w/ articlesSchema
 
