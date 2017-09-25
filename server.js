@@ -24,7 +24,7 @@ app.set("view engine", "handlebars");
 
 //mongoose db config
 var databaseUri = 'mongodb://localhost/newsScraperDB'; //local dir
-// var MONGODB_URI = 'mongodb://heroku_gn16lnt5:c9k37d228nl33tk4k49b6fdh1k@ds139964.mlab.com:39964/heroku_gn16lnt5'; //heroku config
+var MONGODB_URI = 'mongodb://heroku_gn16lnt5:c9k37d228nl33tk4k49b6fdh1k@ds139964.mlab.com:39964/heroku_gn16lnt5'; //heroku config
 
 if (process.env.MONGODB_URI) { //if being run in app
   mongoose.connect(process.env.MONGODB_URI);
