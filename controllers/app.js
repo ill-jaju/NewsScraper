@@ -63,4 +63,24 @@ router.get('/articles', function(req, res) { //get articles from db
   });
 });
 
+router.put('/articles/:id', function(req, res) { //saves article
+  Article.findOneAndUpdate({'_id': req.params.id}, {'isSaved': true}, function(err, data) {
+    if (err) {
+      console.log ('cant save article' + err);
+    } else {
+      res.redirect('/articles')
+    }
+  });
+});
+
+router.get('/saved', function(req, res) {
+  Article.find({'isSaved': true}).exec(function(err, data) {
+    if (err) {
+      console.log ('article ' + err);
+    } else {
+      res.render('saved', { savedData: data }); //handlebars grabs saved template, places data info into respective locations
+    }
+  });
+});
+
 module.exports = router;
