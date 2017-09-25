@@ -73,12 +73,22 @@ router.put('/articles/:id', function(req, res) { //saves article
   });
 });
 
-router.get('/saved', function(req, res) {
+router.get('/saved', function(req, res) { //retrieves saved articles
   Article.find({'isSaved': true}).exec(function(err, data) {
     if (err) {
       console.log ('article ' + err);
     } else {
       res.render('saved', { savedData: data }); //handlebars grabs saved template, places data info into respective locations
+    }
+  });
+});
+
+router.delete('/saved/article/:id', function(req, res) {
+  Article.remove({'_id': req.params.id}, function(err, data) {
+    if (err) {
+      console.log ('cant delete article' + err);
+    } else {
+      res.redirect('/saved')
     }
   });
 });
